@@ -37,7 +37,7 @@ async function importKey(key: string): Promise<CryptoKey> {
  * @param message 要加密的訊息字串
  * @returns 加密後的 Base64 字串
  */
-async function encryptMessage(key: string, message: string): Promise<string> {
+export async function encryptMessage(key: string, message: string): Promise<string> {
   const importedKey = await importKey(key)
 
   const encoder = new TextEncoder()
@@ -71,7 +71,7 @@ async function encryptMessage(key: string, message: string): Promise<string> {
  * @param encryptedMessage 要解密的 Base64 字串
  * @returns 解密後的明文字串
  */
-async function decryptMessage(key: string, encryptedMessage: string): Promise<string> {
+export async function decryptMessage(key: string, encryptedMessage: string): Promise<string> {
   const importedKey = await importKey(key)
 
   // 將 Base64 字串轉換為 Uint8Array
